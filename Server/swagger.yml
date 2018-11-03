@@ -1,0 +1,40 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger ReST Article
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api
+
+# Paths supported by the server application
+paths:
+  /temperatura:
+    get:
+      operationId: temperatura.read_temperature
+      tags:
+        - temperatura
+      summary: Read the value of temperature
+      description: Read the temperature
+      responses:
+        200:
+          description: Successfully read temperature operation
+  /temperature{newTemperature}:
+    put:
+      operationId: temperatura.update
+      tags:
+      - temperatura
+      summary: Update the temperature value
+      description: Update the temperature value
+      parameters:
+      - name: newTemperature
+        in: path
+        description: New Value of Temperature to Save
+        type: float
+        required: True
+      responses:
+        200:
+          description: Value of Temperature successfully updated
