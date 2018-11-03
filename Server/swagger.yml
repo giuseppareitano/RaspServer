@@ -22,7 +22,7 @@ paths:
       responses:
         200:
           description: Successfully read temperature operation
-  /temperature{newTemperature}:
+  /temperatura/{newTemperature}:
     put:
       operationId: temperatura.update
       tags:
@@ -33,7 +33,7 @@ paths:
       - name: newTemperature
         in: path
         description: New Value of Temperature to Save
-        type: float
+        type: string
         required: True
       responses:
         200:
