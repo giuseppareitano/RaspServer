@@ -1,6 +1,9 @@
 from flask import render_template
 import connexion
 
+import RPi.GPIO as GPIO
+import time
+
 # Create the application instance
 app = connexion.App(__name__, specification_dir='./')
 
@@ -19,4 +22,13 @@ def home():
 
 # If we're running in stand alone mode, run the application
 if __name__ == '__main__':
-    app.run(host='localhost', port=5000, debug=True)
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(4, GPIO.IN)
+    app.run(host='/*your ip*/', port=5000, debug=False)
+    while True:
+        a = GPIO.input(4)
+        if a == 1:
+            print("a = 1")
+        if a == 0:
+            print("a = 1")
+        time.sleep(10)

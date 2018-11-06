@@ -83,6 +83,7 @@ def update(newTemperature):
     :param newTemperature:   new value for temperature
     :return:        nulla
     """
+    global temperatura
     temperatura = newTemperature
     return make_response("Temperature successfully updated",200)
 
